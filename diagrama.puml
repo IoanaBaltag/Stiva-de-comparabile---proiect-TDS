@@ -1,0 +1,66 @@
+@startuml diagrama
+scale 1
+left to right direction
+skinparam PackageStyle rect
+skinparam SequenceMessageAlignment center
+
+rectangle Comparabil[
+    =Comparabil
+    ---
+    **Operations**
+    ""public abstract int comparaCu(Comparabil element)""
+]
+
+rectangle Tricou[
+    =Tricou
+    ----
+    **Attributes**
+    ""String denumire""
+    ""int pret""
+    ---
+    **Operations**
+    ""public void setNume(String numeNou)""
+    ""public String getNume()""
+    ""public void setPret(int pretNou)""
+    ""public int setPret()""
+    "" public String toString()""
+    ""public int comparaCu(Comparabil element)""
+]
+
+rectangle StivaDeComparabile[
+    =StivaDeComparabile
+    ---
+    **Attributes**
+    ""public Comparabil[] stiva""
+    ""int nrCurentDeElemente""
+    ---
+    **Operations**
+    ""public StivaDeComparabile(int dimMaxStiva)""
+    ""public void afisareElemente()""
+    ""public void adaugareElement(Comparabil elementNou)""
+    ""public void eliminareElement()""
+    ""public void sortareElemente()""
+]
+
+rectangle StivaGoalaExceptie[
+    =StivaGoalaExceptie
+    ---
+    **Attributes**
+    ---
+    **Operations**
+]
+
+rectangle StivaPlinaExceptie[
+    =StivaPlinaExceptie
+    ---
+    **Attributes**
+    ---
+    **Operations**
+]
+
+Comparabil -left- Tricou
+StivaDeComparabile -- Tricou
+StivaGoalaExceptie -down- StivaDeComparabile
+StivaPlinaExceptie -down- StivaDeComparabile
+
+@enduml
